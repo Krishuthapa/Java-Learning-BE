@@ -1,4 +1,8 @@
+test/constant/DatabaseSchemaName.java
+ test.constant.DatabaseSchemaName
 test/Application.java
  test.app.Application
+test/constant/DatabaseEntityName.java
+ test.constant.DatabaseEntityName
 test/app/todo/model/Todo.java
  test.app.todo.Todo
