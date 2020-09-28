@@ -1,4 +1,4 @@
-package test.app.todo;
+package test.app.todo.model;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
