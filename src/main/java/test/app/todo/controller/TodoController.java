@@ -8,7 +8,7 @@ import test.app.todo.service.TodoService;
 
 import javax.inject.Inject;
 
-@Controller("/api/todos")
+@Controller("/todos")
 public class TodoController {
   @Inject
   private TodoService todoAppService;

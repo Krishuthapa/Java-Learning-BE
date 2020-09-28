@@ -1,8 +1,22 @@
 micronaut:
-  server:
-    port: 8089
   application:
     name: todo
+  server:
+    port: 8089
+    maxRequestSize: 100MB
+    multipart:
+      maxFileSize: 100MB
+    cors:
+      enabled: true
+      configurations:
+        web:
+          allowedMethods:
+            - POST
+            - PUT
+            - PATCH
+            - GET
+            - DELETE
+    context-path: /api
 datasources:
   default:
     url: jdbc:oracle:thin:@localhost:1521/xe
