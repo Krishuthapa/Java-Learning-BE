@@ -1,5 +1,7 @@
 package test.app.todo.controller;
 
+import io.micronaut.core.annotation.Introspected;
+
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.*;
 
@@ -7,8 +9,11 @@ import test.app.todo.model.Todo;
 import test.app.todo.service.TodoService;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 @Controller("/todos")
+@Introspected
 public class TodoController {
   @Inject
   private TodoService todoAppService;
@@ -19,7 +24,7 @@ public class TodoController {
   }
 
   @Post("/")
-  public HttpResponse add(@Body Todo todo) {
+  public HttpResponse add(@Body @Valid Todo todo) {
     return HttpResponse.ok(todoAppService.add(todo));
   }
 
@@ -30,7 +35,7 @@ public class TodoController {
   }
 
   @Patch("/{id}")
-    public HttpResponse update(@PathVariable("id") Long id, @Body Todo todo) {
+    public HttpResponse update(@PathVariable("id")  Long id, @Body @Valid Todo todo) {
         return HttpResponse.ok(todoAppService.updateById(id, todo));
     }
 }

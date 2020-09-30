@@ -2,6 +2,7 @@ package test.app.todo.service;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import javax.transaction.Transactional;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -20,6 +21,7 @@ public class TodoService {
    *
    * @return Iterable<Todo>
    */
+  @Transactional
   public Iterable<Todo> findAll() {
     return todoAppRepository.findAll();
   }
@@ -31,6 +33,7 @@ public class TodoService {
    * @param todo
    * @return Todo
    */
+  @Transactional
   public Todo add(Todo todo) {
     return todoAppRepository.save(todo);
   }
@@ -40,6 +43,7 @@ public class TodoService {
    * @param id
    * @return ObjectNode
    */
+  @Transactional
   public ObjectNode deleteById(Long id){
     todoAppRepository.deleteById(id);
 
@@ -57,6 +61,7 @@ public class TodoService {
    * @param updatedTodo
    * @return ObjectNode
    */
+  @Transactional
   public ObjectNode updateById(Long id, Todo updatedTodo ){
     todoAppRepository.updateById(id, updatedTodo.getIsCompleted());
 
